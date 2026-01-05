@@ -19,6 +19,20 @@
     chain-length = <36>;
 };
 
+&mmv {
+    /* 1. The Exponent (Curvature) */
+    /* 1 = Linear (Speed matches stick push exactly) */
+    /* 2 = Parabolic (Slow at start, very fast at end) -> BEST FOR JOYSTICKS */
+    acceleration-exponent = <2>;
+
+    /* 2. Time to Max Speed */
+    /* How long (ms) to reach top speed. 0 feels responsive. */
+    time-to-max-speed-ms = <0>;
+
+    /* 3. Base Speed */
+    /* If it feels too fast overall, reduce the multiplier in the overlay, not here. */
+};
+
 // &nice_view_spi {
 //     cs-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
 // };
@@ -53,7 +67,7 @@
                                 &kp LGUI &kp LALT &kp LCTRL &mo LOWER  &kp RET    &kp SPACE  &mo RAISE  &kp RCTRL &kp RALT  &kp RGUI
             >;
             sensor-bindings = <
-                &inc_dec_kp C_VOL_UP C_VOL_DN 
+                &inc_dec_kp C_VOL_UP C_VOL_DN
                 &inc_dec_kp PG_UP PG_DN
                 >;
         };
@@ -74,7 +88,7 @@
                                     &trans    &trans      &trans    &trans     &trans &trans  &trans    &trans   &trans    &trans
             >;
             sensor-bindings = <
-                &inc_dec_kp C_VOL_UP C_VOL_DN 
+                &inc_dec_kp C_VOL_UP C_VOL_DN
                 &inc_dec_kp PG_UP PG_DN
             >;
         };
@@ -95,7 +109,7 @@
                                         &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans
             >;
             sensor-bindings = <
-                &inc_dec_kp C_VOL_UP C_VOL_DN 
+                &inc_dec_kp C_VOL_UP C_VOL_DN
                 &inc_dec_kp PG_UP PG_DN
             >;
         };
@@ -116,7 +130,7 @@
                                                 &none           &none           &none           &none            &none           &none  &none &none &none &none
             >;
             sensor-bindings = <
-                &inc_dec_kp C_VOL_UP C_VOL_DN 
+                &inc_dec_kp C_VOL_UP C_VOL_DN
                 &inc_dec_kp PG_UP PG_DN
             >;
         };

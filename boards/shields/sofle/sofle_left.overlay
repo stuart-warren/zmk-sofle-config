@@ -1,0 +1,45 @@
+/* sofle_left.overlay */
+#include <dt-bindings/zmk/input_transform.h>
+#include <dt-bindings/zmk/mouse.h>
+
+&adc {
+    status = "okay";
+};
+
+/ {
+    scroll_stick: scroll_stick {
+        compatible = "zmk,analog-input";
+        sampling-hz = <100>;
+
+        /* Vertical Scroll (Pin A3/AIN5) */
+        y-axis {
+            io-channels = <&adc 5>;
+            input-code = <INPUT_REL_WHEEL>; /* Vertical Scroll */
+            in-min = <0>;
+            in-max = <4095>;
+            in-deadzone = <150>; /* Slightly larger deadzone for scroll prevents drift */
+            scale-multiplier = <1>;
+            scale-divisor = <4>; /* Slow down scroll speed */
+        };
+
+        /* Horizontal Scroll (Pin A2/AIN4) */
+        x-axis {
+            io-channels = <&adc 4>;
+            input-code = <INPUT_REL_HWHEEL>; /* Horizontal Scroll */
+            in-min = <0>;
+            in-max = <4095>;
+            in-deadzone = <150>;
+            scale-multiplier = <1>;
+            scale-divisor = <4>;
+        };
+    };
+
+    scroll_listener {
+        compatible = "zmk,input-behavior-listener";
+        device = <&scroll_stick>;
+
+        /* Map to Scroll Behaviors */
+        bindings = <&ib_input_transform INPUT_REL_WHEEL &msc SCRL_Y>,
+                   <&ib_input_transform INPUT_REL_HWHEEL &msc SCRL_X>;
+    };
+};
