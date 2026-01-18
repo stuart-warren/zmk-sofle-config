@@ -40,7 +40,7 @@
           shield = "sofle_%PART%";
 
           zephyrDepsHash =
-            "sha256-FVCNx7C+mmiYL4+/GbOP2SbKJXcDqzGvRBCgleWNtWE=";
+            "";
 
           meta = {
             description = "ZMK firmware";
