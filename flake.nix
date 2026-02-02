@@ -9,12 +9,20 @@
 
   };
 
-  outputs = { self, nixpkgs, zmk-nix }:
+  outputs = { self, nixpkgs, zmk-nix, }:
     let
       forAllSystems =
         nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
     in
     {
+      devShells = forAllSystems (system: {
+        default = nixpkgs.legacyPackages.${system}.mkShell {
+          packages = [
+            nixpkgs.legacyPackages.${system}.gnumake
+          ];
+        };
+      });
+
       packages = forAllSystems (system: rec {
         default = firmware;
 
@@ -53,14 +61,5 @@
         update = zmk-nix.packages.${system}.update;
       });
 
-      devShells = forAllSystems
-        (system: {
-          default = zmk-nix.devShells.${system}.default.overrideAttrs (oldAttrs: {
-            buildInputs = (oldAttrs.buildInputs or []) ++ [
-              nixpkgs.legacyPackages.${system}.protobuf
-              nixpkgs.legacyPackages.${system}.gnumake
-            ];
-          });
-        });
     };
 }
