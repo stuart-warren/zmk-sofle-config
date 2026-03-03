@@ -1,6 +1,7 @@
 /* sofle_right.overlay */
 #include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/zmk/mouse.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 /* 1. Enable the ADC (Analog Digital Converter) */
 &adc {
@@ -48,12 +49,12 @@
     /* 3. Link the Joystick to the Mouse Behavior */
     /* This listens to the joystick and sends mouse commands */
     joystick_listener {
-        compatible = "zmk,input-behavior-listener";
+        compatible = "zmk,input-listener";
         device = <&joystick_input>;
 
-        /* When X axis moves, call Mouse Move X */
-        bindings = <&ib_input_transform INPUT_REL_X &mmv MOVE_X>,
-                   <&ib_input_transform INPUT_REL_Y &mmv MOVE_Y>;
+        // /* When X axis moves, call Mouse Move X */
+        // bindings = <&ib_input_transform INPUT_REL_X &mmv MOVE_X>,
+        //            <&ib_input_transform INPUT_REL_Y &mmv MOVE_Y>;
 
         /* Speed Scaling (Global) */
         /* To make it faster, increase the multiplier in the behavior config below */
