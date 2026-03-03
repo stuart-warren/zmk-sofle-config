@@ -1,6 +1,7 @@
 /* sofle_left.overlay */
 #include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/zmk/mouse.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &adc {
     status = "okay";
@@ -35,11 +36,11 @@
     };
 
     scroll_listener {
-        compatible = "zmk,input-behavior-listener";
+        compatible = "zmk,input-listener";
         device = <&scroll_stick>;
 
         /* Map to Scroll Behaviors */
-        bindings = <&ib_input_transform INPUT_REL_WHEEL &msc SCRL_Y>,
-                   <&ib_input_transform INPUT_REL_HWHEEL &msc SCRL_X>;
+        // bindings = <&ib_input_transform INPUT_REL_WHEEL &msc SCRL_Y>,
+        //            <&ib_input_transform INPUT_REL_HWHEEL &msc SCRL_X>;
     };
 };
