@@ -23,7 +23,3 @@ include:
     snippet: zmk-usb-logging
   - board: nice_nano@2.0.0
     shield: sofle_right
-  - board: nice_nano@2.0.0
-    shield: sofle_adc_test # New entry for ADC testing
-    snippet: zmk-usb-logging
-    artifact-name: sofle_adc_test_logging
