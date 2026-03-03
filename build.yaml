@@ -18,8 +18,8 @@
 #
 ---
 include:
-  - board: nice_nano@2.0.0
+  - board: nice_nano//zmk
     shield: sofle_left
     snippet: zmk-usb-logging
-  - board: nice_nano@2.0.0
+  - board: nice_nano//zmk
     shield: sofle_right
