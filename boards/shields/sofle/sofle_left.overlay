@@ -11,9 +11,9 @@
         compatible = "zmk,analog-input";
         sampling-hz = <100>;
 
-        /* Vertical Scroll (Pin A3/AIN5) */
+        /* Vertical Scroll (Pin P0.31/AIN7) */
         y-axis {
-            io-channels = <&adc 5>;
+            io-channels = <&adc 7>;
             input-code = <INPUT_REL_WHEEL>; /* Vertical Scroll */
             in-min = <0>;
             in-max = <4095>;
@@ -22,9 +22,9 @@
             scale-divisor = <4>; /* Slow down scroll speed */
         };
 
-        /* Horizontal Scroll (Pin A2/AIN4) */
+        /* Horizontal Scroll (Pin P0.29/AIN5) */
         x-axis {
-            io-channels = <&adc 4>;
+            io-channels = <&adc 5>;
             input-code = <INPUT_REL_HWHEEL>; /* Horizontal Scroll */
             in-min = <0>;
             in-max = <4095>;

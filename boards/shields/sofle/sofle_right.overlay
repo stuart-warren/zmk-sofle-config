@@ -14,9 +14,9 @@
         /* Use the ADC driver */
         sampling-hz = <100>; /* Poll 100 times a second */
 
-        /* Define X Axis (Horizontal) on Pin A2 (P0.28 / AIN4) */
+        /* Define X Axis (Horizontal) on Pin P0.29 (A5 / AIN5) */
         x-axis {
-            io-channels = <&adc 4>;
+            io-channels = <&adc 5>;
             input-code = <INPUT_REL_X>; /* Report as Mouse X */
             /* Calibrate: min, center, max, deadzone */
             /* You may need to tweak these numbers for your specific stick! */
@@ -29,10 +29,10 @@
             scale-divisor = <1>;
         };
 
-        /* Define Y Axis (Vertical) on Pin A3 (P0.29 / AIN5) */
+        /* Define Y Axis (Vertical) on Pin P0.31 (A7 / AIN7) */
         y-axis {
-            /* If Up/Down is swapped with Left/Right, change this to <&adc 4> */
-            io-channels = <&adc 5>;
+            /* If Up/Down is swapped with Left/Right, change this to <&adc 5> */
+            io-channels = <&adc 7>;
             input-code = <INPUT_REL_Y>;
 
             /* If Up goes Down, swap these two numbers (4095 and 0) */

@@ -20,9 +20,10 @@
 include:
   - board: nice_nano@2.0.0
     shield: sofle_left
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    snippet: zmk-usb-logging
   - board: nice_nano@2.0.0
     shield: sofle_right
   - board: nice_nano@2.0.0
-    shield: settings_reset
+    shield: sofle_adc_test # New entry for ADC testing
+    snippet: zmk-usb-logging
+    artifact-name: sofle_adc_test_logging

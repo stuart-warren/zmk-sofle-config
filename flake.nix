@@ -17,9 +17,7 @@
     {
       devShells = forAllSystems (system: {
         default = nixpkgs.legacyPackages.${system}.mkShell {
-          packages = [
-            nixpkgs.legacyPackages.${system}.gnumake
-          ];
+          packages = [ nixpkgs.legacyPackages.${system}.gnumake ];
         };
       });
 
@@ -46,6 +44,7 @@
 
           board = "nice_nano@2.0.0";
           shield = "sofle_%PART%";
+          snippets = ["zmk-usb-logging"];
 
           zephyrDepsHash =
             "sha256-FVCNx7C+mmiYL4+/GbOP2SbKJXcDqzGvRBCgleWNtWE=";
