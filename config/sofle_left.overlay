@@ -1,4 +1,5 @@
 /* config/sofle_left.overlay */
+#include "sofle.dtsi"
 #include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/zmk/mouse.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -24,7 +25,7 @@
             mv-min-max = <1600>;
             mv-deadzone = <150>;
             scale-multiplier = <1>;
-            scale-divisor = <4>;
+            scale-divisor = <16>;
             evt-type = <INPUT_EV_REL>;
             input-code = <INPUT_REL_WHEEL>;
         };
@@ -36,7 +37,7 @@
             mv-min-max = <1600>;
             mv-deadzone = <150>;
             scale-multiplier = <1>;
-            scale-divisor = <4>;
+            scale-divisor = <16>;
             evt-type = <INPUT_EV_REL>;
             input-code = <INPUT_REL_HWHEEL>;
         };
@@ -46,6 +47,10 @@
         compatible = "zmk,input-listener";
         status = "okay";
         device = <&scroll_stick>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
+        input-processors = <&pointer_accel>, <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
+};
+
+&joystick_listener {
+    status = "okay";
 };

@@ -45,8 +45,9 @@
           shield = "sofle_%PART%";
           snippets = [ "zmk-usb-logging" ];
 
+          # zephyrDepsHash = nixpkgs.lib.fakeHash;
           zephyrDepsHash =
-            "sha256-FVCNx7C+mmiYL4+/GbOP2SbKJXcDqzGvRBCgleWNtWE=";
+            "sha256-0YHqq4+sLYKiorJXPP/IZf9JLd8XFSuZPLIAr9vzxpU=";
 
           meta = {
             description = "ZMK firmware";
