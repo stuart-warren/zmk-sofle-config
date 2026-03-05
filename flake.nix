@@ -13,11 +13,10 @@
     let
       forAllSystems =
         nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
-    in
-    {
+    in {
       devShells = forAllSystems (system: {
         default = nixpkgs.legacyPackages.${system}.mkShell {
-          packages = [ nixpkgs.legacyPackages.${system}.gnumake ];
+          packages = with nixpkgs.legacyPackages.${system}; [ gnumake tio ];
         };
       });
 
@@ -44,7 +43,7 @@
 
           board = "nice_nano@2.0.0";
           shield = "sofle_%PART%";
-          snippets = ["zmk-usb-logging"];
+          snippets = [ "zmk-usb-logging" ];
 
           zephyrDepsHash =
             "sha256-FVCNx7C+mmiYL4+/GbOP2SbKJXcDqzGvRBCgleWNtWE=";
