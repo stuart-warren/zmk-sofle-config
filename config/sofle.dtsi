@@ -8,12 +8,12 @@
        1 = Linear, 2 = Quadratic (Commonly used), 3 = Cubic.
     */
     acceleration-exponent = <2>;
-    /* 0.5x speed for tiny movements (precision) */
-    min-factor = <500>;
-    /* 3.0x speed for full joystick tilt (speed) */
-    max-factor = <3000>;
+    /* 0.1x speed for tiny movements (precision) */
+    min-factor = <100>;
+    /* 2.0x speed for full joystick tilt (speed) */
+    max-factor = <2000>;
     /* Speed at which acceleration starts (counts per second) */
-    speed-threshold = <1000>;
+    speed-threshold = <1500>;
     input-type = <INPUT_EV_REL>;
 };
 
