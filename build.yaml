@@ -18,10 +18,10 @@
 #
 ---
 include:
-  - board: nice_nano@2.0.0
+  - board: nice_nano/nrf52840/zmk
     shield: sofle_left
-    snippet: zmk-usb-logging
-  - board: nice_nano@2.0.0
+    # snippet: zmk-usb-logging
+  - board: nice_nano/nrf52840/zmk
     shield: sofle_right
-  - board: nice_nano@2.0.0
+  - board: nice_nano/nrf52840/zmk
     shield: settings_reset
