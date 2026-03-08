@@ -42,14 +42,14 @@
             "_defconfig"
           ];
 
-          board = "nice_nano@2.0.0";
+          board = "nice_nano/nrf52840/zmk";
           shield = "sofle_%PART%";
           # shield = "settings_reset";
-          snippets = [ "zmk-usb-logging" ];
+          # snippets = [ "zmk-usb-logging" ];
 
           # zephyrDepsHash = nixpkgs.lib.fakeHash;
           zephyrDepsHash =
-            "sha256-0YHqq4+sLYKiorJXPP/IZf9JLd8XFSuZPLIAr9vzxpU=";
+            "sha256-9ZsfRTDUgGDeAv1VrZfxtEcADzLtFVlBdrJACHhbz2g=";
 
           meta = {
             description = "ZMK firmware";
