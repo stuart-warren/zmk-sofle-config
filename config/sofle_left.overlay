@@ -21,25 +21,25 @@
         /* Vertical Scroll (Pin P0.31/AIN7) - LEFT SIDE */
         y-axis {
             io-channels = <&adc 7>;
-            mv-mid = <1650>;
+            mv-mid = <1653>;
             mv-min-max = <1600>;
-            mv-deadzone = <50>;
+            mv-deadzone = <20>;
             scale-multiplier = <1>;
             scale-divisor = <512>;
             evt-type = <INPUT_EV_REL>;
-            input-code = <INPUT_REL_WHEEL>;
+            input-code = <INPUT_REL_Y>;
         };
 
         /* Horizontal Scroll (Pin P0.29/AIN5) - LEFT SIDE */
         x-axis {
             io-channels = <&adc 5>;
-            mv-mid = <1650>;
+            mv-mid = <1630>;
             mv-min-max = <1600>;
-            mv-deadzone = <50>;
+            mv-deadzone = <20>;
             scale-multiplier = <1>;
             scale-divisor = <512>;
             evt-type = <INPUT_EV_REL>;
-            input-code = <INPUT_REL_HWHEEL>;
+            input-code = <INPUT_REL_X>;
         };
     };
 
@@ -47,7 +47,7 @@
         compatible = "zmk,input-listener";
         status = "okay";
         device = <&scroll_stick>;
-        input-processors = <&pointer_accel>, <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+        input-processors = <&scroll_accel>, <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
 };
 

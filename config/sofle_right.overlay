@@ -21,11 +21,11 @@
         /* Define X Axis on Pin P0.29 (A5 / AIN5) - RIGHT SIDE */
         x-axis {
             io-channels = <&adc 5>;
-            mv-mid = <1650>;
+            mv-mid = <1625>;
             mv-min-max = <1600>;
-            mv-deadzone = <50>;
-            scale-multiplier = <1>;
-            scale-divisor = <128>;
+            mv-deadzone = <20>;
+            scale-multiplier = <100>;
+            scale-divisor = <102400>;
             evt-type = <INPUT_EV_REL>;
             input-code = <INPUT_REL_X>;
         };
@@ -33,11 +33,11 @@
         /* Define Y Axis on Pin P0.31 (A7 / AIN7) - RIGHT SIDE */
         y-axis {
             io-channels = <&adc 7>;
-            mv-mid = <1650>;
+            mv-mid = <1635>;
             mv-min-max = <1600>;
-            mv-deadzone = <50>;
-            scale-multiplier = <1>;
-            scale-divisor = <128>;
+            mv-deadzone = <20>;
+            scale-multiplier = <100>;
+            scale-divisor = <102400>;
             evt-type = <INPUT_EV_REL>;
             input-code = <INPUT_REL_Y>;
         };

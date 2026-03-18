@@ -4,20 +4,28 @@
 #include <behaviors/input_gestures_accel.dtsi>
 
 &pointer_accel {
-    /* Higher exponent = more "logarithmic" feel.
-       1 = Linear, 2 = Quadratic (Commonly used), 3 = Cubic.
-    */
+    /* Stay at 1.0x (base precision) until 800 cps, then ramp to 3.0x (boost) */
     acceleration-exponent = <2>;
-    /* 0.1x speed for tiny movements (precision) */
-    min-factor = <100>;
-    /* 2.0x speed for full joystick tilt (speed) */
+    min-factor = <500>;
     max-factor = <2000>;
-    /* Speed at which acceleration starts (counts per second) */
-    speed-threshold = <1500>;
+    speed-threshold = <800>;
     input-type = <INPUT_EV_REL>;
+    track-remainders;
 };
 
 / {
+    scroll_accel: scroll_accel {
+        compatible = "zmk,input-processor-acceleration";
+        #input-processor-cells = <0>;
+        /* 0.5x flat profile for scrolling */
+        acceleration-exponent = <1>;
+        min-factor = <500>;
+        max-factor = <500>;
+        speed-threshold = <0>;
+        input-type = <INPUT_EV_REL>;
+        track-remainders;
+    };
+
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
